@@ -1,3 +1,4 @@
+import FormattedFileReader.SQLFileReader;
 import login.LoginPage;
 import queryProcessing.GetQuery;
 import queryProcessing.InsertQuery;
@@ -12,7 +13,11 @@ public class mainUI {
 	public static void main(String[] args) {
 		
 		LoginPage objLogin = new LoginPage();
-		
+
+
+		SQLFileReader objReader = new SQLFileReader();
+		objReader.readFileToGetSQL();
+
 		GetQuery objQuery = new GetQuery();
 		InsertQuery objInserteQuery = new InsertQuery();
 		SelectQuery objSelectQuery = new SelectQuery();
