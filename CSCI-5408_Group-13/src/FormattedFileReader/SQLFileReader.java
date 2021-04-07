@@ -33,8 +33,6 @@ public class SQLFileReader {
 
             String[] arrayOfSplitData = allLinesData.split(" ");
 
-
-
             for(int i=0; i<arrayOfSplitData.length; i++){
                 if(arrayOfSplitData[i].equalsIgnoreCase("database")){
                     objDatabaseData.put(arrayOfSplitData[i+2], null);
