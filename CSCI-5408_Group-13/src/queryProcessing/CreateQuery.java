@@ -1,28 +1,22 @@
 package queryProcessing;
 
 import java.util.*;
+import java.util.logging.Logger;
 
 public class CreateQuery {
 
 	public static List<String> CREATE_DUMP_LIST = new ArrayList<>();
+	public static Map<String,List<String>> FOREIGN_KEY_LIST = new HashMap<>();
 
 	public Map<String, Map<String, Map<String, List<String>>>> createQueryOperations(String query) {
 
-		// Ex: Map<"CollageManagement",Map<"student",Map<"id",List<["111",112""]>>>>
-		// Ex: Map<"CollageManagement",Map<"student",Map<"name",List<["deep","prabhnoor"]>>>>
-		// Ex: Map<"CollageManagement",Map<"student",Map<"department",List<["MACS","MACS"]>>>>
 		Map<String, Map<String, Map<String, List<String>>>> mapDatabaseData = new HashMap<>();
-
-		// Ex: Map<"student",Map<"id",List<["id","varchar"]>>>
 		Map<String, Map<String, List<String>>> mapTableStructure = new HashMap<>();
-
-		// Map<"id", List<["int","pk"]>>
-		// Map<"name", List<"varchar">>
-		// Map<"department", List<"varchar">>
 		Map<String, List<String>> mapColumn = new HashMap<>();
 
 		String currentTable = "";
 		String[] splitQueryForProcessing = query.split(" ");
+
 		splitQueryForProcessing[0].replace("create", "");
 
 		try {
@@ -53,8 +47,32 @@ public class CreateQuery {
 		} catch (IllegalArgumentException e) {
 			System.out.println("Invalid Query");
 		}
+
+		if(query.contains("constraint")){
+			String[] arrToGetFKName = query.split("constraint");
+			String[] arrRelation = arrToGetFKName[1].split("foreign key");
+			String FKName =  arrRelation[0].trim();
+
+			String rightSplit = arrRelation[1].trim();
+			String[] arrSplitSubString = rightSplit.split("references");
+			String currentTableFKColumn = arrSplitSubString[0].replace("(","").replace(")","").trim();
+
+			String[] tempSplit = arrSplitSubString[1].split(" ");
+			String FKTable = tempSplit[1].trim();
+			String FKTableColumnName = tempSplit[3].trim();
+
+			List<String> arrayRelationData = new ArrayList<>();
+			arrayRelationData.add(currentTable);
+			arrayRelationData.add(currentTableFKColumn);
+			arrayRelationData.add(FKTable);
+			arrayRelationData.add(FKTableColumnName);
+
+			FOREIGN_KEY_LIST.put(FKName,arrayRelationData);
+		}
 		return mapDatabaseData;
 	}
 }
 
-// create table student ( id int primary key , name varchar , department varchar ) ;
+// create table student ( id int primary key , name varchar(255) , department varchar(255) ) ;
+// create table course  ( course_id int primary key , course_title varchar(255) ) ;
+// create table grade ( grade_id int primary key , student_id int , course_id int , constraint fk1 foreign key (student_id) references student ( student_id ) );
