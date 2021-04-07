@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class SQLFileReader {
 
-    public Map<String,Map<String, Map<String, List<String>>>> readFileToGetSQL(){
+    public  Map<String,Map<String, Map<String, List<String>>>> readFileToGetSQL(){
 
         Map<String,Map<String, Map<String, List<String>>>> objDatabaseData = new HashMap<>();
         Map<String, Map<String, List<String>>> objTable = new HashMap<>();

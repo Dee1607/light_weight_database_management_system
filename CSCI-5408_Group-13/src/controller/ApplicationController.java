@@ -43,7 +43,7 @@ public class ApplicationController {
                 System.out.println("4.Exit");
                 int userChoice = objGetData.displayMessageGetNumberChoiceFromUser("Select any from above: ");
 
-                switch(userChoice) {
+                 switch(userChoice) {
                     case 1:
                         objSelectQuery = new QuerySelection(MAP_OF_EXISTING_DATA);
                         objSelectQuery.selectQuery();
