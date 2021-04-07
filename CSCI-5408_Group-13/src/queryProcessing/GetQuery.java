@@ -9,7 +9,7 @@ public class GetQuery {
 	public String getQueryFromUser() {
 		
 		objGetData = new DisplayToGetUserChoice();
-		String query = objGetData.displayMessageGetStringChoiceFromUser("Enter Your Query Here -> ");
+		String query = objGetData.displayMessageGetStringChoiceFromUser("Enter Your Query Here => ");
 		
 		return query;
 	}
