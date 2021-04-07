@@ -35,7 +35,7 @@ public class QuerySelection {
                 break;
             case "create":
                 Map<String,Map<String, Map<String, List<String>>>> objDatabaseData = objCreateQuery.createQueryOperations(queryToImplement);
-                objWriter.writeIntoSQLFile(objDatabaseData);
+                //objWriter.writeIntoSQLFile(objDatabaseData);
                 break;
             case "insert":
                 MAP_OF_EXISTING_DATA = objInsertQuery.insertQueryOperations(queryToImplement,MAP_OF_EXISTING_DATA);

@@ -1,0 +1,73 @@
+database : LibraryManagement
+dbStart
+table : Librarians
+tStart
+tStructStart
+col : name varchar
+col : id int | pk
+col : department varchar
+tStructEnd
+rowStart
+name : DeepPatel | 
+id : 111 | 
+department : MACS | 
+rowEnd
+rowStart
+name : deep | 
+id : 112 | 
+department : MACS | 
+rowEnd
+tEnd
+table : users
+tStart
+tStructStart
+col : name varchar
+col : id int | pk
+col : department varchar
+tStructEnd
+rowStart
+name : saurabh | 
+id : 222 | 
+department : MACS | 
+rowEnd
+tEnd
+dbEnd
+database : CollageManagement
+dbStart
+table : professor
+tStart
+tStructStart
+col : name varchar
+col : id int | pk
+col : department varchar
+tStructEnd
+rowStart
+name : saurabh | 
+id : 222 | 
+department : MACS | 
+rowEnd
+tEnd
+table : student
+tStart
+tStructStart
+col : name varchar
+col : id int | pk
+col : department varchar
+tStructEnd
+rowStart
+name : DeepPatel | 
+id : 111 | 
+department : MACS | 
+rowEnd
+rowStart
+name : deep | 
+id : 112 | 
+department : MACS | 
+rowEnd
+rowStart
+name : 'TOM' | 
+id : 1 | 
+department : 'MACS' | 
+rowEnd
+tEnd
+dbEnd

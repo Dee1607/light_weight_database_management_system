@@ -7,7 +7,15 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 public class CreateQuery {
+
+	public static List<String> CREATE_DUMP_LIST = new ArrayList<>();
+
 	public Map<String, Map<String, Map<String, List<String>>>> createQueryOperations(String query) {
+
+		Logger logger = Logger.getLogger("GeneralLog");
+		Logger eventLogger = Logger.getLogger("eventLog");
+		FileHandler fh;
+		FileHandler fh1;
 
 		// Ex: Map<"CollageManagement",Map<"student",Map<"id",List<["111",112""]>>>>
 		// Ex: Map<"CollageManagement",Map<"student",Map<"name",List<["deep","prabhnoor"]>>>>
@@ -26,11 +34,6 @@ public class CreateQuery {
 		String[] splitQueryForProcessing = query.split(" ");
 		splitQueryForProcessing[0].replace("create", "");
 
-		Logger logger = Logger.getLogger("GeneralLog");
-		Logger eventLogger = Logger.getLogger("eventLog");
-		FileHandler fh;
-		FileHandler fh1;
-
 		try {
 			fh = new FileHandler("generalLog.log",true);
 			long startTime = System.nanoTime();
@@ -38,6 +41,7 @@ public class CreateQuery {
 
 			SimpleFormatter formatter = new SimpleFormatter();
 			fh.setFormatter(formatter);
+
 
 			for (int i = 0; i < splitQueryForProcessing.length; i++) {
 				if (splitQueryForProcessing[i].equalsIgnoreCase("create")) {
@@ -62,12 +66,17 @@ public class CreateQuery {
 					mapDatabaseData.put("database", mapTableStructure);
 				}
 			}
+			CREATE_DUMP_LIST.add(query);
+
 			long stopTime = System.nanoTime();
 			long timeToExecute = stopTime-startTime;
 			String time= String.valueOf(timeToExecute);
-			String str = "Table created:"+query+"||"+"Time to execute:"+time;
+			String str = "Create query :"+ query+"||"+"Time to execute:"+time;
+			logger.info(str);
+
 		} catch (IllegalArgumentException e) {
 			System.out.println("Invalid Query");
+		}catch (Exception e){
 			try {
 				fh1=new FileHandler("eventLog.log",true);
 				eventLogger.addHandler(fh1);
@@ -76,9 +85,6 @@ public class CreateQuery {
 			} catch (IOException Exception){
 
 			}
-		}
-		catch (IOException ioException){
-
 		}
 		return mapDatabaseData;
 	}
