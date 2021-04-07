@@ -1,5 +1,7 @@
 package queryProcessing;
 
+import FormattedFileWriter.SQLFileWriter;
+
 import java.util.*;
 
 public class InsertQuery {
@@ -43,40 +45,9 @@ public class InsertQuery {
 		tempTables.replace(tableNameData[2], tempColumn);
 		mapExistingData.replace("CollageManagement", tempTables);
 
+		SQLFileWriter objWriter = new SQLFileWriter();
+		objWriter.writeIntoSQLFile(mapExistingData);
 		return mapExistingData;
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	public String extractDataFromString(String tempString){
-		String finalString = tempString;
-
-		if(tempString.startsWith("(") | tempString.startsWith(")") | tempString.startsWith("'") | tempString.startsWith("=") | tempString.startsWith(",")){
-			finalString = tempString.substring(1, tempString.length());
-		}
-
-		if(finalString.endsWith("(") | finalString.endsWith(")") | finalString.endsWith("'") | finalString.endsWith("=") | finalString.endsWith(",")){
-			finalString = finalString.substring(0, finalString.length());
-		}
-
-		if(finalString.endsWith("(") | finalString.endsWith(")") | finalString.endsWith("'") | finalString.endsWith("=") | finalString.endsWith(",")){
-			finalString = finalString.substring(0, finalString.length());
-		}
-
-		return finalString;
 	}
 }
 //insert into student ( id , name , department ) values ( 1 , 'TOM', 'MACS' );
