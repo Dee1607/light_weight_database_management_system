@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class SQLFileReader {
 
-    public void readFileToGetSQL(){
+    public Map<String,Map<String, Map<String, List<String>>>> readFileToGetSQL(){
 
         Map<String,Map<String, Map<String, List<String>>>> objDatabaseData = new HashMap<>();
         Map<String, Map<String, List<String>>> objTable = new HashMap<>();
@@ -20,7 +20,6 @@ public class SQLFileReader {
         String currentTable = null;
 
         try{
-            String storeIn = "";
             String fileName = "/Users/deeppatel/Desktop/GlobalDataDictionary/SQL_Data.txt";
             File file = new File(fileName);
             FileReader fr = new FileReader(file);
@@ -29,8 +28,6 @@ public class SQLFileReader {
             String allLinesData = "";
             while((line = br.readLine()) != null){
                 allLinesData += line + " ";
-
-                //process the line
             }
             System.out.println(allLinesData);
 
@@ -104,10 +101,11 @@ public class SQLFileReader {
                 }
             }
 
-    System.out.println("Done");
+        System.out.println("Done");
 
         } catch(Exception e) {
             e.printStackTrace();
         }
+        return objDatabaseData;
     }
 }
