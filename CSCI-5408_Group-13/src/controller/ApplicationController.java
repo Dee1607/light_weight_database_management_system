@@ -1,6 +1,8 @@
 package controller;
 
+import ERD.ERDGenerator;
 import FormattedFileWriter.SQLFileWriter;
+import SQLDump.GenerateSQLDump;
 import login.LoginPage;
 import presentationlayer.DisplayToGetUserChoice;
 import queryProcessing.*;
@@ -27,8 +29,6 @@ public class ApplicationController {
     {
         LoginPage objLogin = new LoginPage();
 
-
-
         boolean loginStatus = objLogin.getCredentials();
 
         if(loginStatus) {
@@ -36,6 +36,7 @@ public class ApplicationController {
             boolean isUserReadyToExit = false;
 
             while(!isUserReadyToExit){
+                System.out.println("What operation would you like to perform:");
                 System.out.println("1.Query");
                 System.out.println("2.SQL Dumps");
                 System.out.println("3.ERD");
@@ -48,8 +49,12 @@ public class ApplicationController {
                         objSelectQuery.selectQuery();
                         break;
                     case 2:
+                        GenerateSQLDump objGenerateDumpFile = new GenerateSQLDump();
+                        objGenerateDumpFile.fetchSQLDumpData();
                         break;
                     case 3:
+                        ERDGenerator objGenerateERD = new ERDGenerator();
+                        objGenerateERD.generateERD();
                         break;
                     case 4:
                         isUserReadyToExit = true;
