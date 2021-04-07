@@ -11,7 +11,7 @@ public class UpdateQuery {
 	public Map<String,Map<String, Map<String, List<String>>>> updateQueryOperations(String query,Map<String,Map<String, Map<String, List<String>>>> mapExistingData) {
 
 
-		Logger logger = Logger.getLogger("GeneralLog");
+		Logger logger = Logger.getLogger("generalLog");
 		Logger eventLogger = Logger.getLogger("eventLog");
 		FileHandler fh;
 		FileHandler fh1;

@@ -9,7 +9,7 @@ import java.util.logging.SimpleFormatter;
 
 public class DropQuery {
 	public Map<String,Map<String, Map<String, List<String>>>> dropQueryOperations(String query, Map<String,Map<String, Map<String, List<String>>>> mapExistingData) {
-		Logger logger = Logger.getLogger("GeneralLog");
+		Logger logger = Logger.getLogger("Generallog");
 		Logger eventLogger = Logger.getLogger("eventLog");
 		FileHandler fh;
 		FileHandler fh1;

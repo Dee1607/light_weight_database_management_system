@@ -11,7 +11,7 @@ public class DeleteQuery {
 	public Map<String,Map<String, Map<String, List<String>>>> deleteQueryOperations(String query, Map<String,Map<String, Map<String, List<String>>>> mapExistingData) {
 
 		Logger logger = Logger.getLogger("GeneralLog");
-		Logger eventLogger = Logger.getLogger("eventLog");
+		Logger eventLogger = Logger.getLogger("eventlog");
 		FileHandler fh;
 		FileHandler fh1;
 		try{

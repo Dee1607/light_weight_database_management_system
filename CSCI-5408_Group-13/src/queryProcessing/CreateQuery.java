@@ -14,7 +14,7 @@ public class CreateQuery {
 	public Map<String, Map<String, Map<String, List<String>>>> createQueryOperations(String query) {
 
 		Logger logger = Logger.getLogger("GeneralLog");
-		Logger eventLogger = Logger.getLogger("eventLog");
+		Logger eventLogger = Logger.getLogger("EventLog");
 		FileHandler fh;
 		FileHandler fh1;
 
