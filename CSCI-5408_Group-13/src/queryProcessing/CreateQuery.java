@@ -3,6 +3,9 @@ package queryProcessing;
 import java.util.*;
 
 public class CreateQuery {
+
+	public static List<String> CREATE_DUMP_LIST = new ArrayList<>();
+
 	public Map<String, Map<String, Map<String, List<String>>>> createQueryOperations(String query) {
 
 		// Ex: Map<"CollageManagement",Map<"student",Map<"id",List<["111",112""]>>>>
@@ -46,6 +49,7 @@ public class CreateQuery {
 					mapDatabaseData.put("database", mapTableStructure);
 				}
 			}
+			CREATE_DUMP_LIST.add(query);
 		} catch (IllegalArgumentException e) {
 			System.out.println("Invalid Query");
 		}

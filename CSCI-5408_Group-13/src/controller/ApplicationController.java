@@ -48,6 +48,8 @@ public class ApplicationController {
                         objSelectQuery.selectQuery();
                         break;
                     case 2:
+                        CreateQuery objCreateToGetDump = new CreateQuery();
+                        objWriter.createDumpFiles(objCreateToGetDump.CREATE_DUMP_LIST);
                         break;
                     case 3:
                         break;
