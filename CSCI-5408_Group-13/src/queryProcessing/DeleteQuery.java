@@ -6,6 +6,7 @@ import java.util.Map;
 public class DeleteQuery {
 	public Map<String,Map<String, Map<String, List<String>>>> deleteQueryOperations(String query, Map<String,Map<String, Map<String, List<String>>>> mapExistingData) {
 		
+
 		System.out.println("delete");
 		Map<String, Map<String, List<String>>> tempTables = mapExistingData.get("CollageManagement");
 

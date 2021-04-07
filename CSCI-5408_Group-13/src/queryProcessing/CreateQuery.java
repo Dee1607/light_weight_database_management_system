@@ -1,6 +1,10 @@
 package queryProcessing;
 
+import java.io.IOException;
 import java.util.*;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 public class CreateQuery {
 	public Map<String, Map<String, Map<String, List<String>>>> createQueryOperations(String query) {
@@ -22,7 +26,19 @@ public class CreateQuery {
 		String[] splitQueryForProcessing = query.split(" ");
 		splitQueryForProcessing[0].replace("create", "");
 
+		Logger logger = Logger.getLogger("GeneralLog");
+		Logger eventLogger = Logger.getLogger("eventLog");
+		FileHandler fh;
+		FileHandler fh1;
+
 		try {
+			fh = new FileHandler("generalLog.log",true);
+			long startTime = System.nanoTime();
+			logger.addHandler(fh);
+
+			SimpleFormatter formatter = new SimpleFormatter();
+			fh.setFormatter(formatter);
+
 			for (int i = 0; i < splitQueryForProcessing.length; i++) {
 				if (splitQueryForProcessing[i].equalsIgnoreCase("create")) {
 					currentTable = splitQueryForProcessing[i + 2];
@@ -46,8 +62,23 @@ public class CreateQuery {
 					mapDatabaseData.put("database", mapTableStructure);
 				}
 			}
+			long stopTime = System.nanoTime();
+			long timeToExecute = stopTime-startTime;
+			String time= String.valueOf(timeToExecute);
+			String str = "Table created:"+query+"||"+"Time to execute:"+time;
 		} catch (IllegalArgumentException e) {
 			System.out.println("Invalid Query");
+			try {
+				fh1=new FileHandler("eventLog.log",true);
+				eventLogger.addHandler(fh1);
+				String exception = e.getMessage();
+				eventLogger.info(exception);
+			} catch (IOException Exception){
+
+			}
+		}
+		catch (IOException ioException){
+
 		}
 		return mapDatabaseData;
 	}
