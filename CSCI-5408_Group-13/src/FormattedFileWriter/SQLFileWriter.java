@@ -4,20 +4,14 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class SQLFileWriter {
 
     public void writeIntoSQLFile(Map<String, Map<String, Map<String, List<String>>>> mapDatabaseData) {
         String formattedString = "";
-
-        Map<String, List<String>> VALUES_OF_TABLE = new HashMap<>();
-
-
-        Map<String, Map<String, Map<String, List<String>>>> tempDatabaseData = new HashMap<>();
-        Map<String, Map<String, List<String>>> tempTableData = new HashMap<>();
-        Map<String, List<String>> tempColumnData = new HashMap<>();
-        List<String> values = new ArrayList<>();
 
         for (String databaseName : mapDatabaseData.keySet()) {
 
@@ -55,7 +49,9 @@ public class SQLFileWriter {
         }
         try{
             Path path = Path.of("databaseData.txt");
-            Files.createFile(path);
+            if(!Files.exists(path)){
+                Files.createFile(path);
+            }
             Files.write(path,formattedString.toString().getBytes(StandardCharsets.UTF_8), StandardOpenOption.TRUNCATE_EXISTING);
         }catch(Exception e){
             e.printStackTrace();
@@ -64,11 +60,34 @@ public class SQLFileWriter {
 
     public void createDumpFiles(List<String> listOfDumps){
         try{
-            Path path = Path.of("sqlDumpStored.txt");
-            Files.createFile(path);
-            for(String query : listOfDumps){
-                Files.write(path,query.getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+            Path path = Path.of("sqlDumpStored.sql");
+            if(!Files.exists(path)){
+                Files.createFile(path);
             }
+            for(String query : listOfDumps){
+                Files.write(path,(query+"\n").getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void createERDFiles(Map<String,List<String>> foreignKeyData){
+
+        String formattedString = "";
+
+        try{
+            Path path = Path.of("ERD.txt");
+            if(!Files.exists(path)){
+                Files.createFile(path);
+            }
+            for(String fkName : foreignKeyData.keySet()){
+                List<String> tempListOfForeignKey = foreignKeyData.get(fkName);
+                formattedString += fkName + ":\n";
+                formattedString +=  tempListOfForeignKey.get(0) + "(" + tempListOfForeignKey.get(1) + ")" + "-->" + tempListOfForeignKey.get(2) + "(" + tempListOfForeignKey.get(3) + ")\n";
+            }
+            Files.write(path,(formattedString+"\n").getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+
         }catch(Exception e){
             e.printStackTrace();
         }
