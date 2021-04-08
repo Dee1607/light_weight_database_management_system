@@ -18,8 +18,13 @@ public class DisplayToGetUserChoice
     {
         System.out.println("=================================================================");
         System.out.print(stringToBeDisplayed);
-        String userStringChoice = objToGetValue.next();
+        String userStringChoice = objToGetValue.nextLine();
         System.out.println("=================================================================");
         return userStringChoice;
+    }
+    public void displayMessage(String message){
+        System.out.println("=================================================================");
+        System.out.println(message);
+        System.out.println("=================================================================");
     }
 }
