@@ -1,0 +1,18 @@
+Apr 07, 2021 8:58:01 PM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table grade ( grade_id int primary key , student_id int , course_id int , constraint fk1 foreign key (student_id) references student ( student_id ) );||Time to execute:72023
+Apr 07, 2021 8:58:25 PM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table student ( id int primary key , name varchar(255) , department varchar(255) ) ;||Time to execute:66734
+Apr 07, 2021 10:37:23 PM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table courseSelector ( cs_id int primary key , professor_id int , course_id int , constraint fk1 foreign key (professor_id) references professor ( professor_id ) );||Time to execute:73227
+Apr 07, 2021 10:38:13 PM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from professor||Time to execute:11563
+Apr 07, 2021 10:39:30 PM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from professor ;||Time to execute:11539
+Apr 07, 2021 10:41:27 PM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from professor||Time to execute:13350
+Apr 07, 2021 11:02:55 PM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:19565
+Apr 07, 2021 11:25:48 PM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table grade ( grade_id int primary key , student_id int , course_id int , constraint fk1 foreign key (student_id) references student ( student_id ) );||Time to execute:47607
+Apr 07, 2021 11:53:28 PM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table courseSelector ( cs_id int primary key , professor_id int , course_id int , constraint fk1 foreign key (professor_id) references professor ( professor_id ) ) ;||Time to execute:80192

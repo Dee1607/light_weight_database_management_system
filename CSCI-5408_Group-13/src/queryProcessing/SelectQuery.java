@@ -10,7 +10,7 @@ import java.util.logging.SimpleFormatter;
 
 public class SelectQuery {
 	
-	public void selectQueryOperations(String query, Map<String,Map<String, Map<String, List<String>>>> mapExistingData) {
+	public void selectQueryOperations(String query, Map<String,Map<String, Map<String, List<String>>>> mapExistingData,Map<Boolean, List<String>> dbInfo) {
 		Logger logger = Logger.getLogger("GeneralLog");
 		Logger eventLogger = Logger.getLogger("eventLog");
 		FileHandler fh;
@@ -23,21 +23,21 @@ public class SelectQuery {
 			SimpleFormatter formatter = new SimpleFormatter();
 			fh.setFormatter(formatter);
 
-			Map<String, Map<String, List<String>>> tempTables = mapExistingData.get("CollageManagement");
-
-			String[] queryWords = query.split(" ");
-
-			Map<String,List<String>> tempColumn = tempTables.get(queryWords[3]);
-
-			for (String columnName : tempColumn.keySet()){
-				List<String> columnValues = new ArrayList<>();
-				columnValues = tempColumn.get(columnName);
-				System.out.print(columnName+":");
-				for (int i = 0; i <columnValues.size() ; i++) {
-					System.out.print(columnValues.get(i)+"  ");
-					System.out.println("");
-				}
-			}
+//			Map<String, Map<String, List<String>>> tempTables = mapExistingData.get(dbInfo.get(true).get(0));
+//
+//			String[] queryWords = query.split(" ");
+//
+//			Map<String,List<String>> tempColumn = tempTables.get(queryWords[3]);
+//
+//			for (String columnName : tempColumn.keySet()){
+//				List<String> columnValues = new ArrayList<>();
+//				columnValues = tempColumn.get(columnName);
+//				System.out.print(columnName+":");
+//				for (int i = 0; i <columnValues.size() ; i++) {
+//					System.out.print(columnValues.get(i)+"  ");
+//					System.out.println("");
+//				}
+//			}
 			long stopTime = System.nanoTime();
 			long timeToExecute = stopTime-startTime;
 			String time= String.valueOf(timeToExecute);
@@ -55,7 +55,7 @@ public class SelectQuery {
 			}
 
 		}
-		Map<String, Map<String, List<String>>> tempTables = mapExistingData.get("CollageManagement");
+		Map<String, Map<String, List<String>>> tempTables = mapExistingData.get(dbInfo.get(true).get(0));
 
 		query = query.replaceAll(";","");
 		query = query.replaceAll(",","");
@@ -81,3 +81,4 @@ public class SelectQuery {
 }
 
 // Select * from student ;
+// Select * from professor ;

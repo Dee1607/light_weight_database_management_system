@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 public class DeleteQuery {
-	public Map<String,Map<String, Map<String, List<String>>>> deleteQueryOperations(String query, Map<String,Map<String, Map<String, List<String>>>> mapExistingData) {
+	public Map<String,Map<String, Map<String, List<String>>>> deleteQueryOperations(String query, Map<String,Map<String, Map<String, List<String>>>> mapExistingData,Map<Boolean, List<String>> dbInfo) {
 
 		Logger logger = Logger.getLogger("GeneralLog");
 		Logger eventLogger = Logger.getLogger("eventLog");
@@ -22,8 +22,7 @@ public class DeleteQuery {
 			SimpleFormatter formatter = new SimpleFormatter();
 			fh.setFormatter(formatter);
 
-			System.out.println("delete");
-			Map<String, Map<String, List<String>>> tempTables = mapExistingData.get("CollageManagement");
+			Map<String, Map<String, List<String>>> tempTables = mapExistingData.get(dbInfo.get(true).get(0));
 
 			query = query.replaceAll(";","");
 			query = query.replaceAll(",","");
@@ -47,7 +46,7 @@ public class DeleteQuery {
 					tempColumn.replace(str,temparoryData);
 				}
 				tempTables.replace(tableNameData[2].trim(),tempColumn);
-				mapExistingData.replace("CollageManagement", tempTables);
+				mapExistingData.replace(dbInfo.get(true).get(0), tempTables);
 			}
 
 			long stopTime = System.nanoTime();
@@ -67,10 +66,9 @@ public class DeleteQuery {
 
 			}
 		}
-
-
+		System.out.println("Entry Deleted Successfully !!");
 		return mapExistingData;
 	}
 }
 
-//delete from student where id = 111 ;
+//delete from professor where id = 1 ;

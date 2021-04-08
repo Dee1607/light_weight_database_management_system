@@ -29,7 +29,6 @@ public class SQLFileReader {
             while((line = br.readLine()) != null){
                 allLinesData += line + " ";
             }
-            System.out.println(allLinesData);
 
             String[] arrayOfSplitData = allLinesData.split(" ");
 
@@ -98,9 +97,6 @@ public class SQLFileReader {
                     objTable = new HashMap<>();
                 }
             }
-
-        System.out.println("Done");
-
         } catch(Exception e) {
             e.printStackTrace();
         }

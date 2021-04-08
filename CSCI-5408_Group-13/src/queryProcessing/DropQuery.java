@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 public class DropQuery {
-	public Map<String,Map<String, Map<String, List<String>>>> dropQueryOperations(String query, Map<String,Map<String, Map<String, List<String>>>> mapExistingData) {
+	public Map<String,Map<String, Map<String, List<String>>>> dropQueryOperations(String query, Map<String,Map<String, Map<String, List<String>>>> mapExistingData,Map<Boolean, List<String>> dbInfo) {
 		Logger logger = Logger.getLogger("GeneralLog");
 		Logger eventLogger = Logger.getLogger("eventLog");
 		FileHandler fh;
@@ -22,12 +22,12 @@ public class DropQuery {
 			SimpleFormatter formatter = new SimpleFormatter();
 			fh.setFormatter(formatter);
 
-			Map<String, Map<String, List<String>>> tempTables = mapExistingData.get("CollageManagement");
+			Map<String, Map<String, List<String>>> tempTables = mapExistingData.get(dbInfo.get(true).get(0));
 
 			String[] tableNameData = query.split(" ");
 
 			tempTables.remove(tableNameData[2]);
-			mapExistingData.replace("CollageManagement",tempTables);
+			mapExistingData.replace(dbInfo.get(true).get(0),tempTables);
 
 			long stopTime = System.nanoTime();
 			long timeToExecute = stopTime-startTime;
@@ -47,9 +47,7 @@ public class DropQuery {
 
 			}
 		}
-
-
-
+		System.out.println("Table deleted Successfully !!");
 		return mapExistingData;
 	}
 }

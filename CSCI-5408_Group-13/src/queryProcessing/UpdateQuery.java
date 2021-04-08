@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 public class UpdateQuery {
-	public Map<String,Map<String, Map<String, List<String>>>> updateQueryOperations(String query,Map<String,Map<String, Map<String, List<String>>>> mapExistingData) {
+	public Map<String,Map<String, Map<String, List<String>>>> updateQueryOperations(String query,Map<String,Map<String, Map<String, List<String>>>> mapExistingData, Map<Boolean, List<String>> dbInfo) {
 
 
 		Logger logger = Logger.getLogger("GeneralLog");
@@ -25,7 +25,7 @@ public class UpdateQuery {
 			SimpleFormatter formatter = new SimpleFormatter();
 			fh.setFormatter(formatter);
 
-			Map<String, Map<String, List<String>>> tempTables = mapExistingData.get("CollageManagement");
+			Map<String, Map<String, List<String>>> tempTables = mapExistingData.get(dbInfo.get(true).get(0));
 
 			query = query.replaceAll(";","");
 			query = query.replaceAll(",","");
@@ -50,7 +50,7 @@ public class UpdateQuery {
 
 				tempColumn.replace(leftSplit[0].trim(),tempList);
 				tempTables.replace(tableNameData[2].trim(),tempColumn);
-				mapExistingData.replace("CollageManagement", tempTables);
+				mapExistingData.replace(dbInfo.get(true).get(0), tempTables);
 			}
 
 			long stopTime = System.nanoTime();
@@ -71,6 +71,8 @@ public class UpdateQuery {
 
 			}
 		}
+
+		System.out.println("Updation completed Successfully !!");
 		return mapExistingData;
 	}
 }

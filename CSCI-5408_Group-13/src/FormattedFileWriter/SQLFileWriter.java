@@ -4,6 +4,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -48,11 +49,12 @@ public class SQLFileWriter {
             formattedString += "\n" + "dbEnd" + "\n";
         }
         try{
-            Path path = Path.of("databaseData.txt");
+            Path path = Path.of("SQL_Data.txt");
             if(!Files.exists(path)){
                 Files.createFile(path);
             }
-            Files.write(path,formattedString.toString().getBytes(StandardCharsets.UTF_8), StandardOpenOption.TRUNCATE_EXISTING);
+            Files.write(path,formattedString.getBytes(StandardCharsets.UTF_8), StandardOpenOption.TRUNCATE_EXISTING);
+            System.out.println("SQL file created Successfully !!");
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -66,6 +68,7 @@ public class SQLFileWriter {
             }
             for(String query : listOfDumps){
                 Files.write(path,(query+"\n").getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+                System.out.println("SQL Dump file created Successfully !!");
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -87,7 +90,17 @@ public class SQLFileWriter {
                 formattedString +=  tempListOfForeignKey.get(0) + "(" + tempListOfForeignKey.get(1) + ")" + "-->" + tempListOfForeignKey.get(2) + "(" + tempListOfForeignKey.get(3) + ")\n";
             }
             Files.write(path,(formattedString+"\n").getBytes(StandardCharsets.UTF_8), StandardOpenOption.APPEND);
+            System.out.println("ERD file created Successfully !!");
 
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void writeTables(Map<String,Map<String, Map<String, List<String>>>> mapExistingData){
+
+        try{
+            Map<String, Map<String, List<String>>> tables = mapExistingData.get("SchoolManagement");
         }catch(Exception e){
             e.printStackTrace();
         }

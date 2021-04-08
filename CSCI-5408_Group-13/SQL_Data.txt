@@ -1,0 +1,12 @@
+database : remote
+dbStart
+table : courseSelector
+tStart
+tStructStart
+col : course_id int
+col : cs_id int | pk
+col : professor_id )
+col : constraint fk1
+tStructEnd
+tEnd
+dbEnd

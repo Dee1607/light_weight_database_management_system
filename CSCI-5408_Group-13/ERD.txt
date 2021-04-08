@@ -1,3 +1,3 @@
 fk1:
-grade(student_id)-->student(student_id)
+courseSelector(professor_id)-->professor(professor_id)
 

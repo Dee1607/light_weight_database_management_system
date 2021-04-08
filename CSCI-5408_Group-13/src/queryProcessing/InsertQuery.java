@@ -5,9 +5,9 @@ import FormattedFileWriter.SQLFileWriter;
 import java.util.*;
 
 public class InsertQuery {
-	public Map<String, Map<String, Map<String, List<String>>>> insertQueryOperations(String query, Map<String,Map<String, Map<String, List<String>>>> mapExistingData) {
+	public Map<String, Map<String, Map<String, List<String>>>> insertQueryOperations(String query, Map<String,Map<String, Map<String, List<String>>>> mapExistingData,Map<Boolean, List<String>> dbInfo) {
 
-		Map<String, Map<String, List<String>>> tempTables = mapExistingData.get("CollageManagement");
+		Map<String, Map<String, List<String>>> tempTables = mapExistingData.get(dbInfo.get(true).get(0));
 
 		query = query.replaceAll(";","");
 		query = query.replaceAll(",","");
@@ -43,10 +43,12 @@ public class InsertQuery {
 		}
 
 		tempTables.replace(tableNameData[2], tempColumn);
-		mapExistingData.replace("CollageManagement", tempTables);
+		mapExistingData.replace(dbInfo.get(true).get(0), tempTables);
 
 		SQLFileWriter objWriter = new SQLFileWriter();
 		objWriter.writeIntoSQLFile(mapExistingData);
+
+		System.out.println("Data inserted Successfully !!");
 		return mapExistingData;
 	}
 }

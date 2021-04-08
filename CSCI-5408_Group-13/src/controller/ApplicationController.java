@@ -6,8 +6,8 @@ import SQLDump.GenerateSQLDump;
 import login.LoginPage;
 import presentationlayer.DisplayToGetUserChoice;
 import queryProcessing.*;
-
-import java.lang.invoke.SwitchPoint;
+import signup.UserSignUp;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,12 +27,27 @@ public class ApplicationController {
 
     public void initializeApplication()
     {
+        System.out.println("What operation would you like to perform:");
+        System.out.println("1.Login");
+        System.out.println("2.Register");
+        int userLoginChoice = objGetData.displayMessageGetNumberChoiceFromUser("Select any from above: ");
+        Map<Boolean, List<String>> loginStatus = new HashMap<>();
         LoginPage objLogin = new LoginPage();
+        UserSignUp objSignUp = new UserSignUp();
 
-        boolean loginStatus = objLogin.getCredentials();
+        switch(userLoginChoice){
+            case 1:
+                loginStatus = objLogin.getCredentials();
+                break;
+            case 2:
+                objSignUp.registerUser();
+                loginStatus = objLogin.getCredentials();
+                break;
+            default:
+                break;
+        }
 
-        if(loginStatus) {
-
+        if(null != loginStatus) {
             boolean isUserReadyToExit = false;
 
             while(!isUserReadyToExit){
@@ -46,7 +61,7 @@ public class ApplicationController {
                 switch(userChoice) {
                     case 1:
                         objSelectQuery = new QuerySelection(MAP_OF_EXISTING_DATA);
-                        objSelectQuery.selectQuery();
+                        objSelectQuery.selectQuery(loginStatus);
                         break;
                     case 2:
                         GenerateSQLDump objGenerateDumpFile = new GenerateSQLDump();
@@ -57,6 +72,7 @@ public class ApplicationController {
                         objGenerateERD.generateERD();
                         break;
                     case 4:
+                        objWriter.writeTables(MAP_OF_EXISTING_DATA);
                         isUserReadyToExit = true;
                         break;
                 }

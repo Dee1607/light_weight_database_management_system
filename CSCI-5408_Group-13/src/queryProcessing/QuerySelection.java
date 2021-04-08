@@ -12,7 +12,7 @@ public class QuerySelection {
     public QuerySelection(Map<String,Map<String, Map<String, List<String>>>> mapExistingData){
         this.MAP_OF_EXISTING_DATA = mapExistingData;
     }
-    public void selectQuery(){
+    public void selectQuery(Map<Boolean, List<String>> loginStatus){
 
         GetQuery objQuery = new GetQuery();
         InsertQuery objInsertQuery = new InsertQuery();
@@ -34,23 +34,25 @@ public class QuerySelection {
                 objUseQuery.useQueryOperations(queryToImplement);
                 break;
             case "create":
-                Map<String,Map<String, Map<String, List<String>>>> objDatabaseData = objCreateQuery.createQueryOperations(queryToImplement);
-                //objWriter.writeIntoSQLFile(objDatabaseData);
+                Map<String,Map<String, Map<String, List<String>>>> objDatabaseData = objCreateQuery.createQueryOperations(queryToImplement, loginStatus);
+                if(objDatabaseData!=null){
+                    objWriter.writeIntoSQLFile(objDatabaseData);
+                }
                 break;
             case "insert":
-                MAP_OF_EXISTING_DATA = objInsertQuery.insertQueryOperations(queryToImplement,MAP_OF_EXISTING_DATA);
+                MAP_OF_EXISTING_DATA = objInsertQuery.insertQueryOperations(queryToImplement,MAP_OF_EXISTING_DATA,loginStatus);
                 break;
             case "update":
-                MAP_OF_EXISTING_DATA = objUpdateQuery.updateQueryOperations(queryToImplement,MAP_OF_EXISTING_DATA);
+                MAP_OF_EXISTING_DATA = objUpdateQuery.updateQueryOperations(queryToImplement,MAP_OF_EXISTING_DATA,loginStatus);
                 break;
             case "select":
-                objSelectQuery.selectQueryOperations(queryToImplement, MAP_OF_EXISTING_DATA);
+                objSelectQuery.selectQueryOperations(queryToImplement, MAP_OF_EXISTING_DATA,loginStatus);
                 break;
             case "delete":
-                MAP_OF_EXISTING_DATA = objDeleteQuery.deleteQueryOperations(queryToImplement,MAP_OF_EXISTING_DATA);
+                MAP_OF_EXISTING_DATA = objDeleteQuery.deleteQueryOperations(queryToImplement,MAP_OF_EXISTING_DATA,loginStatus);
                 break;
             case "drop":
-                MAP_OF_EXISTING_DATA = objDropQuery.dropQueryOperations(queryToImplement,MAP_OF_EXISTING_DATA);
+                MAP_OF_EXISTING_DATA = objDropQuery.dropQueryOperations(queryToImplement,MAP_OF_EXISTING_DATA,loginStatus);
                 break;
         }
     }

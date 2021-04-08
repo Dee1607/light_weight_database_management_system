@@ -1,0 +1,4 @@
+student-deep-remote
+course-deep-remote
+grade-deep-remote
+courseSelector-deep-remote

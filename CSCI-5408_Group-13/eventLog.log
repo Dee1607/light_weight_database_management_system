@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-04-08T00:15:30.406667Z</date>
+  <millis>1617840930406</millis>
+  <nanos>667000</nanos>
+  <sequence>0</sequence>
+  <logger>eventLog</logger>
+  <level>INFO</level>
+  <class>queryProcessing.CreateQuery</class>
+  <method>createQueryOperations</method>
+  <thread>1</thread>
+  <message>Index 0 out of bounds for length 0</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-04-08T00:22:41.565233Z</date>
+  <millis>1617841361565</millis>
+  <nanos>233000</nanos>
+  <sequence>0</sequence>
+  <logger>eventLog</logger>
+  <level>INFO</level>
+  <class>queryProcessing.CreateQuery</class>
+  <method>createQueryOperations</method>
+  <thread>1</thread>
+  <message>Index 0 out of bounds for length 0</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-04-08T00:24:38.746169Z</date>
+  <millis>1617841478746</millis>
+  <nanos>169000</nanos>
+  <sequence>0</sequence>
+  <logger>eventLog</logger>
+  <level>INFO</level>
+  <class>queryProcessing.CreateQuery</class>
+  <method>createQueryOperations</method>
+  <thread>1</thread>
+  <message>Index 0 out of bounds for length 0</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-04-08T00:27:14.060263Z</date>
+  <millis>1617841634060</millis>
+  <nanos>263000</nanos>
+  <sequence>0</sequence>
+  <logger>eventLog</logger>
+  <level>INFO</level>
+  <class>queryProcessing.CreateQuery</class>
+  <method>createQueryOperations</method>
+  <thread>1</thread>
+  <message>Index 0 out of bounds for length 0</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-04-08T00:32:48.598590Z</date>
+  <millis>1617841968598</millis>
+  <nanos>590000</nanos>
+  <sequence>0</sequence>
+  <logger>eventLog</logger>
+  <level>INFO</level>
+  <class>queryProcessing.CreateQuery</class>
+  <method>createQueryOperations</method>
+  <thread>1</thread>
+  <message>Index 0 out of bounds for length 0</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2021-04-08T01:41:00.965462Z</date>
+  <millis>1617846060965</millis>
+  <nanos>462000</nanos>
+  <sequence>5</sequence>
+  <logger>eventLog</logger>
+  <level>INFO</level>
+  <class>queryProcessing.DeleteQuery</class>
+  <method>deleteQueryOperations</method>
+  <thread>1</thread>
+</record>
+</log>
