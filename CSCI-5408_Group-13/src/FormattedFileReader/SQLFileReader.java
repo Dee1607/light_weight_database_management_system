@@ -15,6 +15,7 @@ public class SQLFileReader {
         Map<String,Map<String, Map<String, List<String>>>> objDatabaseData = new HashMap<>();
         Map<String, Map<String, List<String>>> objTable = new HashMap<>();
         Map<String, List<String>> objColumn = new HashMap<>();
+        List<String> dbList = new ArrayList<>();
         List<String> values = new ArrayList<>();
         String currentDB = null;
         String currentTable = null;
@@ -36,6 +37,7 @@ public class SQLFileReader {
                 if(arrayOfSplitData[i].equalsIgnoreCase("database")){
                     objDatabaseData.put(arrayOfSplitData[i+2], null);
                     currentDB = arrayOfSplitData[i+2];
+                    dbList.add(currentDB);
                     i+=3;
                 }
                 else if(arrayOfSplitData[i].equalsIgnoreCase("table")){

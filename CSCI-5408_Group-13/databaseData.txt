@@ -1,0 +1,68 @@
+database : remote
+dbStart
+table : student
+tStart
+tStructStart
+col : id int | pk
+col : name varchar
+col : department varchar
+tStructEnd
+rowStart
+id : 111 |
+name : Deep Patel |
+department : MACS |
+rowEnd
+rowStart
+id : 112 |
+name : deep |
+department : MACS |
+rowEnd
+tEnd
+table : professor
+tStart
+tStructStart
+col : id int | pk
+col : name varchar
+col : department varchar
+tStructEnd
+rowStart
+id : 222 |
+name : saurabh |
+department : MACS |
+rowEnd
+tEnd
+dbEnd
+database : local
+dbStart
+table : Librarians
+tStart
+tStructStart
+col : id int | pk
+col : name varchar
+col : department varchar
+tStructEnd
+rowStart
+id : 111 |
+name : Deep Patel |
+department : MACS |
+rowEnd
+rowStart
+id : 112 |
+name : deep |
+department : MACS |
+rowEnd
+tEnd
+table : users
+tStart
+tStructStart
+col : id int | pk
+col : name varchar
+col : department varchar
+tStructEnd
+rowStart
+id : 222 |
+name : saurabh |
+department : MACS |
+rowEnd
+tEnd
+dbEnd

@@ -14,7 +14,8 @@ public class DeleteQuery {
 		Logger eventLogger = Logger.getLogger("eventLog");
 		FileHandler fh;
 		FileHandler fh1;
-		try{
+		try
+		{
 			fh = new FileHandler("generalLog.log",true);
 			long startTime = System.nanoTime();
 			logger.addHandler(fh);
@@ -54,16 +55,19 @@ public class DeleteQuery {
 			String time= String.valueOf(timeToExecute);
 			String str = "Delete query :"+ query+"||"+"Time to execute:"+time;
 			logger.info(str);
-
-
-		}catch (Exception exception){
-			try {
+		}
+		catch (Exception exception)
+		{
+			try
+			{
 				fh1=new FileHandler("eventLog.log",true);
 				eventLogger.addHandler(fh1);
 				String e = exception.getMessage();
 				eventLogger.info(e);
-			} catch (IOException Exception){
-
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
 			}
 		}
 		System.out.println("Entry Deleted Successfully !!");
@@ -71,4 +75,5 @@ public class DeleteQuery {
 	}
 }
 
-//delete from professor where id = 1 ;
+// delete from professor where id = 1 ;
+// delete from student where id = 1 ;

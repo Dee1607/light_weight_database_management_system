@@ -1,3 +1,0 @@
-fk1:
-courseSelector(professor_id)-->professor(professor_id)
-

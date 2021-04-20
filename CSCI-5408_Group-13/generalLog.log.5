@@ -1,2 +1,6 @@
 Apr 07, 2021 10:41:27 PM queryProcessing.SelectQuery selectQueryOperations
 INFO: Select query :select * from professor||Time to execute:13350
+Apr 15, 2021 8:25:14 AM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table courseSelector ( cs_id int primary key , professor_id int , course_id int , constraint fk1 foreign key (professor_id) references professor ( professor_id ) ) ;||Time to execute:50490
+Apr 15, 2021 2:08:37 PM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:8951

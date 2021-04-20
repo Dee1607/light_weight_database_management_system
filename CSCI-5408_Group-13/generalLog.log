@@ -66,3 +66,93 @@ Apr 07, 2021 11:52:32 PM queryProcessing.SelectQuery selectQueryOperations
 INFO: Select query :select * from student ;||Time to execute:12466
 Apr 07, 2021 11:53:28 PM queryProcessing.CreateQuery createQueryOperations
 INFO: Create query :create table courseSelector ( cs_id int primary key , professor_id int , course_id int , constraint fk1 foreign key (professor_id) references professor ( professor_id ) ) ;||Time to execute:80192
+Apr 15, 2021 7:47:30 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from students;||Time to execute:26744
+Apr 15, 2021 7:48:29 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:19163
+Apr 15, 2021 7:49:22 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student||Time to execute:15100
+Apr 15, 2021 7:50:41 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:26757
+Apr 15, 2021 7:52:42 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from users ||Time to execute:25435
+Apr 15, 2021 7:54:11 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:27879
+Apr 15, 2021 8:00:12 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:25543797858
+Apr 15, 2021 8:00:35 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:18388
+Apr 15, 2021 8:06:23 AM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table grade ( grade_id int primary key , student_id int , course_id int , constraint fk1 foreign key (student_id) references student ( student_id ) );||Time to execute:70160
+Apr 15, 2021 8:10:06 AM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table grade ( grade_id int primary key , student_id int , course_id int , grade int , constraint fk1 foreign key (student_id) references student ( student_id ) );||Time to execute:74707
+Apr 15, 2021 8:18:28 AM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table grade ( grade_id int primary key , student_id int , course_id int , grade int , constraint fk1 foreign key (student_id) references student ( student_id ) );||Time to execute:74204
+Apr 15, 2021 8:20:18 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:16259
+Apr 15, 2021 8:21:02 AM queryProcessing.UpdateQuery updateQueryOperations
+INFO: Update query :update student set name = 'Schmidt' where id = 111 ||Time to execute:284239
+Apr 15, 2021 8:21:02 AM queryProcessing.UpdateQuery updateQueryOperations
+INFO: Update table:set
+Apr 15, 2021 8:21:13 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:19779
+Apr 15, 2021 8:21:44 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from professor ;||Time to execute:11501
+Apr 15, 2021 8:21:59 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:9164
+Apr 15, 2021 8:23:01 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:21299
+Apr 15, 2021 8:23:24 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:13379
+Apr 15, 2021 8:23:54 AM queryProcessing.DeleteQuery deleteQueryOperations
+INFO: Delete query :delete from student where id = 1 ||Time to execute:203816
+Apr 15, 2021 8:24:18 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:12396
+Apr 15, 2021 8:24:56 AM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table grade ( grade_id int primary key , student_id int , course_id int , grade int , constraint fk1 foreign key (student_id) references student ( student_id ) ) ;||Time to execute:86137
+Apr 15, 2021 8:25:14 AM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table courseSelector ( cs_id int primary key , professor_id int , course_id int , constraint fk1 foreign key (professor_id) references professor ( professor_id ) ) ;||Time to execute:50490
+Apr 15, 2021 8:33:16 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from user ;||Time to execute:14897
+Apr 15, 2021 8:33:45 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from users ;||Time to execute:22585
+Apr 15, 2021 8:34:33 AM queryProcessing.DropQuery dropQueryOperations
+INFO: Drop query :drop table users ;||Time to execute:57679
+Apr 15, 2021 8:34:33 AM queryProcessing.DropQuery dropQueryOperations
+INFO: usersremoved
+Apr 15, 2021 8:34:54 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from users ;||Time to execute:25329
+Apr 15, 2021 8:39:22 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from users ;||Time to execute:24357
+Apr 15, 2021 8:39:42 AM queryProcessing.DropQuery dropQueryOperations
+INFO: Drop query :drop table users ;||Time to execute:61524
+Apr 15, 2021 8:39:42 AM queryProcessing.DropQuery dropQueryOperations
+INFO: usersremoved
+Apr 15, 2021 8:39:53 AM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from users ;||Time to execute:20447
+Apr 15, 2021 10:00:55 AM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table grade ( grade_id int primary key , student_id int , course_id int , grade int , constraint fk1 foreign key (student_id) references student ( student_id ) ) ;||Time to execute:99569
+Apr 15, 2021 10:06:44 AM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table grade ( grade_id int primary key , student_id int , course_id int , constraint fk1 foreign key (student_id) references student ( student_id ) ) ;||Time to execute:88598
+Apr 15, 2021 1:16:10 PM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table courseSelector ( cs_id int primary key , professor_id int , course_id int , constraint fk1 foreign key (professor_id) references professor ( professor_id ) );||Time to execute:80258
+Apr 15, 2021 2:05:29 PM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:19557
+Apr 15, 2021 2:07:19 PM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:16754
+Apr 15, 2021 2:07:54 PM queryProcessing.DeleteQuery deleteQueryOperations
+INFO: Delete query :delete from student where id = 1 ||Time to execute:266749
+Apr 15, 2021 2:08:07 PM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:9462
+Apr 15, 2021 2:08:25 PM queryProcessing.DropQuery dropQueryOperations
+INFO: Drop query :drop table student ;||Time to execute:52750
+Apr 15, 2021 2:08:25 PM queryProcessing.DropQuery dropQueryOperations
+INFO: studentremoved
+Apr 15, 2021 2:08:37 PM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:8951
+Apr 15, 2021 2:10:00 PM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table student ( id int primary key , name varchar(255) , department varchar(255) ) ;||Time to execute:76755
+Apr 15, 2021 2:10:59 PM queryProcessing.SelectQuery selectQueryOperations
+INFO: Select query :select * from student ;||Time to execute:21198
+Apr 15, 2021 2:12:04 PM queryProcessing.CreateQuery createQueryOperations
+INFO: Create query :create table courseSelector ( cs_id int primary key , professor_id int , course_id int , constraint fk1 foreign key (professor_id) references professor ( professor_id ) ) ;||Time to execute:119041

@@ -52,4 +52,7 @@ public class InsertQuery {
 		return mapExistingData;
 	}
 }
-//insert into student ( id , name , department ) values ( 1 , 'TOM', 'MACS' );
+
+// insert into courseSelector ( cs_id , professor_id , course_id ) values ( 123 , 123 , 123 ) ;
+// insert into student ( id , name , department ) values ( 1 , 'TOM', 'MACS' ) ;
+// insert into grade ( grade_id , student_id , course_id ) values ( 1 , 'asd' , 'asd' ) ;

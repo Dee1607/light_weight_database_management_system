@@ -1,15 +1,12 @@
 import FormattedFileReader.SQLFileReader;
 import controller.ApplicationController;
-import login.LoginPage;
-import queryProcessing.*;
-
 import java.util.List;
 import java.util.Map;
 
-
-public class mainUI {
-	public static void main(String[] args) {
-
+public class mainUI
+{
+	public static void main(String[] args)
+	{
 		SQLFileReader objReader = new SQLFileReader();
 		Map<String,Map<String, Map<String, List<String>>>> existingData = objReader.readFileToGetSQL();
 

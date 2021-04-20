@@ -4,7 +4,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -53,7 +52,7 @@ public class SQLFileWriter {
             if(!Files.exists(path)){
                 Files.createFile(path);
             }
-            Files.write(path,formattedString.getBytes(StandardCharsets.UTF_8), StandardOpenOption.TRUNCATE_EXISTING);
+            Files.write(path,formattedString.getBytes(StandardCharsets.UTF_8), StandardOpenOption.WRITE);
             System.out.println("SQL file created Successfully !!");
         }catch(Exception e){
             e.printStackTrace();

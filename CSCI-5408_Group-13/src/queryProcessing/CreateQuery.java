@@ -152,6 +152,9 @@ public class CreateQuery {
 
 // create table student ( id int primary key , name varchar(255) , department varchar(255) ) ;
 // create table course  ( course_id int primary key , course_title varchar(255) ) ;
-// create table grade ( grade_id int primary key , student_id int , course_id int , constraint fk1 foreign key (student_id) references student ( student_id ) );
+
 // create table professor ( id int primary key , name varchar(255) , department varchar(255) ) ;
 // create table courseSelector ( cs_id int primary key , professor_id int , course_id int , constraint fk1 foreign key (professor_id) references professor ( professor_id ) );
+
+// create table grade ( grade_id int primary key , student_id int , course_id int , grade int , constraint fk1 foreign key (student_id) references student ( student_id ) );
+// insert into grade ( grade_id , student_id , course_id ) values ( 12 , 1200 , 12000 ) ;

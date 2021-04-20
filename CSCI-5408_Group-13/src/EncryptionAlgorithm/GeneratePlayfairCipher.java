@@ -44,15 +44,6 @@ public class GeneratePlayfairCipher {
 				count++;
 			}
 		}
-
-		System.out.println("Here is your Key Matrix: ");
-		for (int i = 0; i < 5; i++) {
-			for (int j = 0; j < 5; j++) {
-				System.out.print(MATRIX[i][j]);
-			}
-
-			System.out.println();
-		}
 		return MATRIX;
 	}
 

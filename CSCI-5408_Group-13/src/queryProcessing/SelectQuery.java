@@ -1,5 +1,7 @@
 package queryProcessing;
 
+import presentationlayer.DisplayToGetUserChoice;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,9 +55,10 @@ public class SelectQuery {
 			} catch (IOException Exception){
 
 			}
-
 		}
+
 		Map<String, Map<String, List<String>>> tempTables = mapExistingData.get(dbInfo.get(true).get(0));
+		DisplayToGetUserChoice objDisplay = new DisplayToGetUserChoice();
 
 		query = query.replaceAll(";","");
 		query = query.replaceAll(",","");
@@ -63,20 +66,25 @@ public class SelectQuery {
 		query = query.replaceAll("\\)","");
 
 		String[] tableNameData = query.split(" ");
-		Map<String,List<String>> tempColumn = tempTables.get(tableNameData[3]);
 
+		if(tempTables.get(tableNameData[3]) != null){
+			Map<String,List<String>> tempColumn = tempTables.get(tableNameData[3]);
 
-		System.out.println("=================================================================");
-		for(String columnName : tempColumn.keySet()){
-			System.out.format("%1s%15s%15s", "|",columnName + ":", " |");
+			System.out.println("=================================================================");
+			for(String columnName : tempColumn.keySet()){
+				System.out.format("%1s%15s%15s", "|",columnName + ":", " |");
 
-			List<String> tempListValues = tempColumn.get(columnName);
-			for (int i = 2; i < tempListValues.size(); i++) {
-				System.out.format("%1s%15s%15s", "|",tempListValues.get(i), " |");
+				List<String> tempListValues = tempColumn.get(columnName);
+				for (int i = 2; i < tempListValues.size(); i++) {
+					System.out.format("%1s%15s%15s", "|",tempListValues.get(i), " |");
+				}
+				System.out.println();
 			}
-			System.out.println();
+			System.out.println("=================================================================");
 		}
-		System.out.println("=================================================================");
+		else{
+			objDisplay.displayMessage("Table does not exists!!");
+		}
 	}
 }
 

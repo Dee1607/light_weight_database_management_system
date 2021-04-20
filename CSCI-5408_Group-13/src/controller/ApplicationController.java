@@ -11,8 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ApplicationController {
-
+public class ApplicationController
+{
     private Map<String,Map<String, Map<String, List<String>>>> MAP_OF_EXISTING_DATA = null;
     SQLFileWriter objWriter = null;
     DisplayToGetUserChoice objGetData = null;
@@ -22,7 +22,6 @@ public class ApplicationController {
         this.MAP_OF_EXISTING_DATA = existingData;
         objWriter =new SQLFileWriter();
         objGetData = new DisplayToGetUserChoice();
-
     }
 
     public void initializeApplication()
@@ -40,7 +39,7 @@ public class ApplicationController {
                 loginStatus = objLogin.getCredentials();
                 break;
             case 2:
-                objSignUp.registerUser();
+                objSignUp.registerUser(MAP_OF_EXISTING_DATA);
                 loginStatus = objLogin.getCredentials();
                 break;
             default:

@@ -20,7 +20,6 @@ public class QuerySelection {
         DeleteQuery objDeleteQuery = new DeleteQuery();
         CreateQuery objCreateQuery = new CreateQuery();
         UpdateQuery objUpdateQuery = new UpdateQuery();
-        UseQuery objUseQuery = new UseQuery();
         DropQuery objDropQuery = new DropQuery();
         objWriter = new SQLFileWriter();
 
@@ -30,9 +29,6 @@ public class QuerySelection {
         String typeOfQuery = arrOfQueryElements[0].toLowerCase();
 
         switch(typeOfQuery) {
-            case "use":
-                objUseQuery.useQueryOperations(queryToImplement);
-                break;
             case "create":
                 Map<String,Map<String, Map<String, List<String>>>> objDatabaseData = objCreateQuery.createQueryOperations(queryToImplement, loginStatus);
                 if(objDatabaseData!=null){
